@@ -1,9 +1,9 @@
-new_list = [9, 6, 4, 3, 1]
+new_list = [9, 6, 4, 3, 3, 1]
 print('Текущий рейтинг: ', new_list)
-num = int(input("Введите новый элемент рейтинга: "))
+num = int(input(("Введите новый элемент рейтинга: ")))
 for el in range(len(new_list)):
     if new_list[el] == num:
-        new_list.insert(el + 1, num)
+        new_list.insert(new_list.index(num) + new_list.count(num), float(num))
         break
     elif new_list[0] < num:
         new_list.insert(0, num)

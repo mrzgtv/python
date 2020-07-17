@@ -1,10 +1,16 @@
-product_qty = int(input('Введите количество товаров: '))
-main_list = []
-main_dict = []
-a = 1
-while a <= product_qty:
-    main_dict = dict({'Название товара': input("Введите название товара "), 'Цена': input("Введите цену товара "), 'Количество': input('Введите количество товара '), 'Ед.изм.': input("Введите единицу измерения ")})
-    main_list.append((a, main_dict))
-    a += 1
-for el in main_list:
-    print(el)
+goods = []
+features = {'Description': '', 'Price': '', 'Q-ty': '', 'MeasUnit': ''}
+analytics = {'Description': [], 'Price': [], 'Q-ty': [], 'MeasUnit': []}
+num = 0
+while True:
+    if input('For quit type "Q", "ENTER" to continue: ').upper() == 'Q':
+        break
+    num += 1
+    for f in features.keys():
+        a = input(f'Enter "{f}": ')
+        features[f] = int(a) if (f == 'Price' or f == 'Q-ty') else a
+        analytics[f].append(features[f])
+    goods.append((num, features))
+    print(f'\nCurrent analytics: \n ')
+    for key, value in analytics.items():
+        print(f'{key}: {value}')
